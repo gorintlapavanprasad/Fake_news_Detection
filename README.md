@@ -127,5 +127,3 @@ outputs/checkpoints/best_model.pt
 ## Author
 
 Pavan Prasad Gorintla
-Rahul 
-Smrithya 
