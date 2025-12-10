@@ -64,6 +64,56 @@ fake_news_detection_project/
 └── docs/
     └── project_documentation.md
 
+## Project Overview
+
+Fake news has become one of the most critical challenges in the digital age. This project compares multiple modeling strategies to determine which methods generalize best on a real-world fake-news dataset.
+
+The project evaluates three major approaches:
+
+1. Hybrid Deep Learning Model
+    
+    Techniques used:
+    
+    - Text Cleaning & Stopword Removal
+    - Keras Tokenizer
+    - Word2Vec embeddings (trained on training data only)
+    - LDA Topic Modeling (10 topics)
+    - CNN layer for n-gram detection
+    - BiLSTM for long-range contextual information
+    - Custom Attention Layer
+    - Topic vectors concatenated with Attention output
+    - EarlyStopping & ReduceLROnPlateau
+    - LIME explainability
+    
+This is the most advanced pipeline, combining both semantic (topic-level) and sequential (word-level) information.
+    
+2. Random Forest Classifier
+
+    File: FND_using_random_forest.py
+    
+    This classical ML model uses:
+    
+    - Average Word2Vec embeddings
+    - LDA topic vectors
+    - Combined 110-dim document feature vector
+    - RandomForestClassifier
+    - LIME explainability
+    
+It provides strong performance with low training cost.
+    
+3. Decision Tree Classifier
+
+    File: FND_using_decision_tree.py
+
+    A simple, fully interpretable baseline using:
+    
+    - Average Word2Vec vectors
+    - LDA topic distributions
+    - Depth-controlled DecisionTreeClassifier
+    - LIME explainability
+    
+Useful for comparing interpretability vs model power.
+
 ## How to Run the Project
 
 1. Create and activate a virtual environment (macOS/Linux):
@@ -117,13 +167,25 @@ Best model:
 
 outputs/checkpoints/best_model.pt
 
+## Key Insights
+
+- Random Forest performs extremely well with engineered features
+- Decision Tree is interpretable but may overfit
+- Hybrid deep learning model is powerful but requires regularization
+- Word2Vec + LDA improves traditional ML performance
+- LIME helps understand model decisions
+
 ## Future Extensions
 
-- Add CNN, GRU, or Transformer-based models
-- Add explainability methods (SHAP, Integrated Gradients)
-- Add visualizations (confusion matrix, ROC curve)
-- Build a Gradio/Streamlit interface
+- Add TF-IDF + Linear SVM
+- Integrate BERT / DistilBERT
+- Experiment with different LDA topic counts
+- Add ROC-AUC curves
+- Deploy via FastAPI or Flask
 
 ## Author
 
 Pavan Prasad Gorintla
+Smrithya Iyer
+Rahul Rubugunday
+
