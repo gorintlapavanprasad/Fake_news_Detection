@@ -189,6 +189,6 @@ outputs/checkpoints/best_model.pt
 ## Author
 
 Pavan Prasad Gorintla
-Smrithya Iyer
+Smirthya Somaskantha Iyer
 Rahul Rubugunday
 
