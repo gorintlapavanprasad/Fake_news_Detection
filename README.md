@@ -134,6 +134,9 @@ data/raw/Fake.csv
 
 python3 main.py
 
+python3 FND_using_random_forest.py        #Run separatly to find the Random Forest Approach 
+python3 FND_using_decision_tree.py        #Run separatly to find the Decision Tree Approach
+
 ## Model Architecture
 
 The model consists of the following components:
