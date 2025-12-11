@@ -9,19 +9,19 @@ This repository implements and compares three different approaches to detecting 
 ### Hybrid Deep Learning Model (CNN + BiLSTM + Attention + Word2Vec + LDA)
 
 A powerful neural architecture that combines:  
-    • Word2Vec embeddings  
-    • LDA topic vectors  
-    • Convolution layers for local pattern recognition  
-    • BiLSTM for sequential context  
-    • Custom Attention layer for focusing on key phrases  
+    - Word2Vec embeddings  
+    - LDA topic vectors  
+    - Convolution layers for local pattern recognition  
+    - BiLSTM for sequential context  
+    - Custom Attention layer for focusing on key phrases  
 
 ### Random Forest Model
 
 A classical ML baseline using:  
-    • Average Word2Vec embeddings  
-    • LDA topic vectors  
-    • 110-dimensional engineered features  
-    • Strong interpretability + fast inference  
+    - Average Word2Vec embeddings  
+    - LDA topic vectors  
+    - 110-dimensional engineered features  
+    - Strong interpretability + fast inference  
 
 ### Decision Tree Model
 
@@ -38,11 +38,11 @@ The goal of this project is to build models that can accurately classify news ar
 
 Every script uses a unified preprocessing pipeline:  
     ✔ Text cleaning  
-        • Lowercasing  
-        • Removing URLs  
-        • Removing punctuation/numbers  
-        • Stopword removal  
-        • Tokenization  
+        - Lowercasing  
+        - Removing URLs  
+        - Removing punctuation/numbers  
+        - Stopword removal  
+        - Tokenization  
     ✔ Train/Test Split  
 
 Performed before any modeling to avoid data leakage.  
@@ -76,20 +76,20 @@ Each model reports:
 
 Hybrid models combining embeddings + topics + attention outperform classical ML
 
-• Random Forests are great baselines and surprisingly strong.  
-• Decision Trees offer interpretability with lower accuracy.  
-• LDA topics significantly improve feature richness.  
-• Word2Vec improves semantic understanding over TF-IDF.  
-• LIME reveals which words influence model predictions.  
+- Random Forests are great baselines and surprisingly strong.  
+- Decision Trees offer interpretability with lower accuracy.  
+- LDA topics significantly improve feature richness.  
+- Word2Vec improves semantic understanding over TF-IDF.  
+- LIME reveals which words influence model predictions.  
 
 
 ## Possible Enhancements
 
-• Upgrade to BERT / DistilBERT embeddings.  
-• Add ROC-AUC curves and more metrics.  
-• Hyperparameter tuning via grid search / Optuna.  
-• Deploy using FastAPI or Flask.  
-• Streamlit dashboard for live predictions.  
+- Upgrade to BERT / DistilBERT embeddings.  
+- Add ROC-AUC curves and more metrics.  
+- Hyperparameter tuning via grid search / Optuna.  
+- Deploy using FastAPI or Flask.  
+- Streamlit dashboard for live predictions.  
 
 
 ## Contributors
