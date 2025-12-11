@@ -37,15 +37,15 @@ The goal of this project is to build models that can accurately classify news ar
 ### 1. Data Preprocessing
 
 Every script uses a unified preprocessing pipeline:
-    ✔ Text cleaning
-        • Lowercasing
-        • Removing URLs
-        • Removing punctuation/numbers
-        • Stopword removal
-        • Tokenization
-    ✔ Train/Test Split
+    ✔ Text cleaning  
+        • Lowercasing  
+        • Removing URLs  
+        • Removing punctuation/numbers  
+        • Stopword removal  
+        • Tokenization  
+    ✔ Train/Test Split  
 
-Performed before any modeling to avoid data leakage.
+Performed before any modeling to avoid data leakage.  
 
 
 ### 2. Feature Engineering
