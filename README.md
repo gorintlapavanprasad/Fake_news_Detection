@@ -43,6 +43,7 @@ Every script uses a unified preprocessing pipeline:
         • Removing punctuation/numbers  
         • Stopword removal  
         • Tokenization  
+    
     ✔ Train/Test Split  
 
 Performed before any modeling to avoid data leakage.  
@@ -53,21 +54,21 @@ Performed before any modeling to avoid data leakage.
 • Word2Vec  
      A custom Word2Vec model is trained only on the training set  
      → Documents represented as the average vector of all word embeddings (100-dim).  
+
 • LDA Topic Modeling  
      - Captures global document semantics  
      - Trained only on training data  
 
 ## Evaluation Metrics
 
-1. Each model reports:  
-
-• Accuracy  
+Each model reports:  
+1. Accuracy  
     - Precision, Recall, F1-Score  
     - Confusion Matrix  
     - Example predictions  
     - LIME explanations  
 
-• Typical performance range:  
+2. Typical performance range:  
     - Decision Tree → 94%  
     - Random Forest → 97%  
     - Hybrid DL Model → 99.5%  
