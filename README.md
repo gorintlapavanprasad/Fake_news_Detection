@@ -70,7 +70,20 @@ Each model reports:
 2. Typical performance range:  
     - Decision Tree → 94%  
     - Random Forest → 97%  
-    - Hybrid DL Model → 99.5%  
+    - Hybrid DL Model → 99.5%
+  
+## How to Run the Models
+Install dependencies:
+-     pip install numpy pandas nltk gensim scikit-learn tensorflow lime
+
+Run any script:
+-     python main.py                          # Hybrid Model  
+-     python FND_using_random_forest.py       # Random Forest  
+-     python FND_using_decision_tree.py       # Decision Tree
+
+Dataset should contain two files:
+-     Fake.csv
+-     True.csv
 
 ## Key Insights
 
