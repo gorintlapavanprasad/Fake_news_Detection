@@ -8,20 +8,20 @@ This repository implements and compares three different approaches to detecting 
 
 ### Hybrid Deep Learning Model (CNN + BiLSTM + Attention + Word2Vec + LDA)
 
-A powerful neural architecture that combines:
-    • Word2Vec embeddings
-    • LDA topic vectors
-    • Convolution layers for local pattern recognition
-    • BiLSTM for sequential context
-    • Custom Attention layer for focusing on key phrases
+A powerful neural architecture that combines:  
+    • Word2Vec embeddings  
+    • LDA topic vectors  
+    • Convolution layers for local pattern recognition  
+    • BiLSTM for sequential context  
+    • Custom Attention layer for focusing on key phrases  
 
 ### Random Forest Model
 
-A classical ML baseline using:
-    • Average Word2Vec embeddings
-    • LDA topic vectors
-    • 110-dimensional engineered features
-    • Strong interpretability + fast inference
+A classical ML baseline using:  
+    • Average Word2Vec embeddings  
+    • LDA topic vectors  
+    • 110-dimensional engineered features  
+    • Strong interpretability + fast inference  
 
 ### Decision Tree Model
 
