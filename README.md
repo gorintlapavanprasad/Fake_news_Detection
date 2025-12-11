@@ -1,196 +1,98 @@
-# Fake News Detection using BiLSTM with Attention
+# Explainable AI in Fake News Detection
 
-## Project Overview
+A comprehensive end-to-end Fake News Detection system built using classical Machine Learning models and a custom Hybrid Deep Learning architecture.
+This project demonstrates modern NLP preprocessing, topic modeling, embedding techniques, and model explainability.
 
-This project implements a complete Fake News Detection system using a Bidirectional LSTM (BiLSTM) with an Attention mechanism.
-The system reads news articles, learns linguistic patterns from text, and predicts whether an article is Real or Fake.
+## Overview
+This repository implements and compares three different approaches to detecting fake news:
 
-The project uses the ISOT Fake News Dataset, which contains two files:
+### Hybrid Deep Learning Model (CNN + BiLSTM + Attention + Word2Vec + LDA)
 
-- Fake.csv
-- True.csv
+A powerful neural architecture that combines:
+    • Word2Vec embeddings
+    • LDA topic vectors
+    • Convolution layers for local pattern recognition
+    • BiLSTM for sequential context
+    • Custom Attention layer for focusing on key phrases
 
-Together, these files contain over 44,000 labelled articles.
+### Random Forest Model
 
-The entire project is structured in a modular, research-friendly manner to allow easy upgrades, experiments, and documentation.
+A classical ML baseline using:
+    • Average Word2Vec embeddings
+    • LDA topic vectors
+    • 110-dimensional engineered features
+    • Strong interpretability + fast inference
 
-## Dataset Description
+### Decision Tree Model
 
-The ISOT Fake News dataset consists of two CSV files:
+A fully interpretable model using the same engineered features.
+Useful for understanding feature importance and rule-based splitting.
 
-1. Fake.csv – approximately 23,000 fake news articles
-2. True.csv – approximately 21,000 real news articles
 
-Each file contains the following columns:
+## Problem Statement
+Fake news creates misinformation, social mistrust, and real-world harm.
+The goal of this project is to build models that can accurately classify news articles as FAKE or REAL using advanced NLP techniques.
 
-- title: headline of the article
-- text: main content of the article
-- subject: topic category
-- date: publication date
+## Methodology
+### 1. Data Preprocessing
 
-For this project, the title and text fields are combined to form a single input text field.
+Every script uses a unified preprocessing pipeline:
+    ✔ Text cleaning
+        • Lowercasing
+        • Removing URLs
+        • Removing punctuation/numbers
+        • Stopword removal
+        • Tokenization
+    ✔ Train/Test Split
 
-## Project Structure
+Performed before any modeling to avoid data leakage.
 
-fake_news_detection_project/
-│
-├── main.py
-├── config.yaml
-├── requirements.txt
-│
-├── data/
-│   └── raw/
-│       ├── True.csv
-│       └── Fake.csv
-│
-├── src/
-│   ├── data/
-│   │   ├── preprocess.py
-│   │   └── dataset.py
-│   ├── models/
-│   │   └── bilstm_attention.py
-│   ├── training/
-│   │   ├── train.py
-│   │   └── metrics.py
-│   └── utils/
-│       ├── seed.py
-│       └── paths.py
-│
-├── outputs/
-│   ├── checkpoints/
-│   └── predictions/
-│
-├── results/
-└── docs/
-    └── project_documentation.md
 
-## Project Overview
-
-Fake news has become one of the most critical challenges in the digital age. This project compares multiple modeling strategies to determine which methods generalize best on a real-world fake-news dataset.
-
-The project evaluates three major approaches:
-
-1. Hybrid Deep Learning Model
+### 2. Feature Engineering
     
-    Techniques used:
-    
-    - Text Cleaning & Stopword Removal
-    - Keras Tokenizer
-    - Word2Vec embeddings (trained on training data only)
-    - LDA Topic Modeling (10 topics)
-    - CNN layer for n-gram detection
-    - BiLSTM for long-range contextual information
-    - Custom Attention Layer
-    - Topic vectors concatenated with Attention output
-    - EarlyStopping & ReduceLROnPlateau
-    - LIME explainability
-    
-This is the most advanced pipeline, combining both semantic (topic-level) and sequential (word-level) information.
-    
-2. Random Forest Classifier
+• Word2Vec
+    A custom Word2Vec model is trained only on the training set
+    → Documents represented as the average vector of all word embeddings (100-dim).
+• LDA Topic Modeling
+    - Captures global document semantics
+    - Trained only on training data
 
-    File: FND_using_random_forest.py
-    
-    This classical ML model uses:
-    
-    - Average Word2Vec embeddings
-    - LDA topic vectors
-    - Combined 110-dim document feature vector
-    - RandomForestClassifier
-    - LIME explainability
-    
-It provides strong performance with low training cost.
-    
-3. Decision Tree Classifier
+## Evaluation Metrics
 
-    File: FND_using_decision_tree.py
+1. Each model reports:
 
-    A simple, fully interpretable baseline using:
-    
-    - Average Word2Vec vectors
-    - LDA topic distributions
-    - Depth-controlled DecisionTreeClassifier
-    - LIME explainability
-    
-Useful for comparing interpretability vs model power.
+• Accuracy
+    - Precision, Recall, F1-Score
+    - Confusion Matrix
+    - Example predictions
+    - LIME explanations
 
-## How to Run the Project
-
-1. Create and activate a virtual environment (macOS/Linux):
-
-python3 -m venv venv
-source venv/bin/activate
-
-2. Install required packages:
-
-pip install -r requirements.txt
-
-3. Ensure the dataset files exist in the correct folder:
-
-data/raw/True.csv
-data/raw/Fake.csv
-
-4. Run the main script:
-
-python3 main.py
-
-python3 FND_using_random_forest.py        #Run separatly to find the Random Forest Approach 
-python3 FND_using_decision_tree.py        #Run separatly to find the Decision Tree Approach
-
-## Model Architecture
-
-The model consists of the following components:
-
-1. Embedding Layer
-2. Bidirectional LSTM
-3. Attention Layer
-4. Fully Connected Layer
-5. Sigmoid Activation
-
-## Training Configuration
-
-- Loss function: Binary Cross Entropy (BCELoss)
-- Optimizer: Adam
-- Learning rate: 0.001
-- Batch size: 64
-- Number of epochs: 10
-- Device: CPU or GPU
-
-## Evaluation and Outputs
-
-Test metrics are saved in:
-
-results/test_metrics.txt
-
-Predictions:
-
-outputs/predictions/test_predictions.csv
-
-Best model:
-
-outputs/checkpoints/best_model.pt
+• Typical performance range:
+    - Decision Tree → 94%
+    - Random Forest → 97%
+    - Hybrid DL Model → 99.5%
 
 ## Key Insights
 
-- Random Forest performs extremely well with engineered features
-- Decision Tree is interpretable but may overfit
-- Hybrid deep learning model is powerful but requires regularization
-- Word2Vec + LDA improves traditional ML performance
-- LIME helps understand model decisions
+Hybrid models combining embeddings + topics + attention outperform classical ML
 
-## Future Extensions
+• Random Forests are great baselines and surprisingly strong
+• Decision Trees offer interpretability with lower accuracy
+• LDA topics significantly improve feature richness
+• Word2Vec improves semantic understanding over TF-IDF
+• LIME reveals which words influence model predictions
 
-- Add TF-IDF + Linear SVM
-- Integrate BERT / DistilBERT
-- Experiment with different LDA topic counts
-- Add ROC-AUC curves
-- Deploy via FastAPI or Flask
 
-## Author
+## Possible Enhancements
 
-Pavan Prasad Gorintla
+• Upgrade to BERT / DistilBERT embeddings
+• Add ROC-AUC curves and more metrics
+• Hyperparameter tuning via grid search / Optuna
+• Deploy using FastAPI or Flask
+• Streamlit dashboard for live predictions
 
-Smirthya Somaskantha Iyer
 
-Rahul Rubugunday
-
+## Contributors
+1. Smirthya Somaskantha Iyer
+2. Rahul Rubugunday
+3. Pavan Gorintla
