@@ -1,0 +1,33 @@
+seed: 42
+
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  figures_dir: "figures"
+  results_dir: "results"
+  outputs_dir: "outputs"
+  checkpoints_dir: "outputs/checkpoints"
+  predictions_dir: "outputs/predictions"
+
+data:
+  true_file: "True.csv"
+  fake_file: "Fake.csv"
+  max_vocab_size: 30000
+  min_freq: 2
+  max_seq_len: 400
+  val_size: 0.15
+  test_size: 0.15
+
+training:
+  batch_size: 64
+  num_epochs: 10
+  lr: 0.001
+  weight_decay: 0.0
+  device: "cuda"   # change to "cpu" if no GPU
+
+model:
+  embedding_dim: 100
+  hidden_dim: 128
+  num_layers: 1
+  dropout: 0.3
+  bidirectional: true
