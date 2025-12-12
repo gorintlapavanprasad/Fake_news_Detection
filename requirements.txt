@@ -1,13 +1,7 @@
-# Required for main pipeline (main.py)
-numpy>=1.26
-pandas>=2.1
-scikit-learn>=1.3
-pyyaml>=6.0
-tqdm>=4.66
-torch>=2.1
-
-# Required for Random Forest & Decision Tree baselines
-nltk>=3.8
-gensim>=4.3
-lime>=0.2.0.1
-matplotlib>=3.8
+numpy
+pandas
+scikit-learn
+tensorflow
+gensim
+nltk
+lime
