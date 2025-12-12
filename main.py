@@ -22,12 +22,9 @@ nltk.download('punkt')
 nltk.download('punkt_tab')
 stopwords = set(nltk.corpus.stopwords.words("english"))
 
-from google.colab import drive
-drive.mount('/content/drive')
-
 #Creating a dataframe by loading the dataset
-df_Fake = pd.read_csv("/content/drive/MyDrive/Fake News Detection/Fake.csv")
-df_True = pd.read_csv("/content/drive/MyDrive/Fake News Detection/True.csv")
+df_Fake = pd.read_csv("/content/dataset/Fake.csv")
+df_True = pd.read_csv("/content/dataset/True.csv")
 
 # Add labels before merging
 df_Fake["label"] = 0     # Fake = 0
