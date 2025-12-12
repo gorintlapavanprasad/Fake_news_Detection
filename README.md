@@ -28,6 +28,12 @@ A classical ML baseline using:
 A fully interpretable model using the same engineered features.
 Useful for understanding feature importance and rule-based splitting.
 
+## Dataset
+Kindly download the dataset and store it in the same folder as the main file. Also modify the dataset file path accordingly
+
+dataset:
+<https://www.kaggle.com/datasets/emineyetm/fake-news-detection-datasets>
+
 
 ## Problem Statement
 Fake news creates misinformation, social mistrust, and real-world harm.
